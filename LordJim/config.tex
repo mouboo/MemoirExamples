@@ -1,0 +1,174 @@
+%%%% Config version 0.1 %%%%
+
+%Temporary packages
+\usepackage{lipsum} % for lorem ipsum text
+
+%%
+%% FONTS
+%% using fontspec
+%%
+\usepackage{microtype}
+\usepackage[]{fontspec}
+
+%% Option 1: use packages
+\usepackage{ETbb}
+
+%% Option 2: use local files
+
+%\setmainfont{etbb}[% in local font directory
+%	Path= ./fonts/ETbb/ ,
+%	UprightFont		= *-Regular.otf ,
+%	BoldFont		= *-Bold.otf ,
+%	ItalicFont      = *-Italic.otf ,
+%	BoldItalicFont  = *-BoldItalic.otf ,
+%]
+%
+%\setsansfont{<fontname>}
+%
+%\setmonofont{<fontname>}
+
+%%
+
+%\newfontfamily\myfont{<fontname>}[% Custom font family, use {\myfont <text>}
+%	Path            =   ./fonts/<dir>/,
+%	UprightFont     =   *-Regular,
+%%	...
+%] 
+
+%%
+%% Paragraph style
+%%
+\setlength{\parindent}{1em}
+
+%
+% PAPERSIZE AND MARGINS
+% see page 1 of the memoir manual
+%
+
+\setlxvchars[\normalfont\normalsize]
+
+\setstocksize{198mm}{129mm} % size of the paper: mlargecrownvopaper
+\settrimmedsize{\stockheight}{\stockwidth}{*}
+
+%% Option 1, setting typeblock size and position
+%%\setbinding{<length>}
+\settypeblocksize{35\onelineskip}{95mm}{*}
+\setlrmargins{*}{*}{1.6667}
+\setulmargins{*}{*}{1.6667}
+\setheadfoot{\onelineskip}{2\onelineskip}
+%\setheaderspaces{3\onelineskip}{*}{*}
+\setmarginnotes{17pt}{51pt}{\onelineskip}
+\checkandfixthelayout[lines]
+
+%% Option 2, setting margins
+%%\setbinding{<length>}
+%\setlrmarginsandblock{0.5in}{*}{1.5} 
+%\setulmarginsandblock{1in}{*}{1.5} 
+%\checkandfixthelayout
+
+
+%%
+%% PAGE STYLE
+%%
+
+\makepagestyle{mypagestyle}
+%%\makeheadrule{mypagestyle}{\textwidth}{\normalrulethickness}
+%
+\makepsmarks{mypagestyle}{%
+%	\nouppercaseheads
+%	\createmark{chapter}{both}{nonumber}{}{}
+%	\createmark{section}{right}{shownumber}{}{. \space}
+%	\createplainmark{toc}{both}{\contentsname}
+%	\createplainmark{lof}{both}{\listfigurename}
+%	\createplainmark{lot}{both}{\listtablename}
+%	\createplainmark{bib}{both}{\bibname}
+%	\createplainmark{index}{both}{\indexname}
+%	\createplainmark{glossary}{both}{\glossaryname}
+%	
+	\makeevenhead{mypagestyle}%
+		{}{}{}
+	\makeoddhead{mypagestyle}%
+		{}{}{}
+	\makeevenfoot{mypagestyle}%
+		{\thepage}{}{}
+	\makeoddfoot{mypagestyle}%
+		{}{}{\thepage}
+}
+\pagestyle{mypagestyle}		
+
+\aliaspagestyle{plain}{mypagestyle} % plain points to mypagestyle
+
+%%
+%% CHAPTER STYLE
+%%
+
+\gdef\clearforchapter{} % disable new page for chapters
+
+\makechapterstyle{mychapterstyle}{% Default values:
+  \setlength{\beforechapskip}{2ex plus 1.5ex minus .5ex}
+  \renewcommand*{\chapterheadstart}{\par\vspace{\beforechapskip}}
+%  \renewcommand*{\chapnamefont}{\normalfont\huge\bfseries}
+  \renewcommand*{\printchaptername}{}
+  \renewcommand*{\chapternamenum}{}
+  \renewcommand*{\chapnumfont}{\normalfont\HUGE\bfseries\centering}
+  \renewcommand*{\printchapternum}{\chapnumfont \thechapter .}
+%  \setlength{\midchapskip}{20pt}
+  \renewcommand*{\afterchapternum}{}
+%  \renewcommand*{\printchapternonum}{}
+  \renewcommand*{\chaptitlefont}{\normalfont\HUGE\bfseries}
+%  \renewcommand*{\printchaptertitle}[1]{\chaptitlefont #1}
+  \setlength{\afterchapskip}{1.2ex plus .2ex}
+%  \renewcommand*{\afterchaptertitle}{\par\nobreak\vskip \afterchapskip}
+}
+\chapterstyle{mychapterstyle}
+
+
+%%
+%% LOWER SECTIONS STYLE
+%%
+
+%\maxsecnumdepth{section} % number sections
+
+%% Section
+%\setbeforesecskip{-3.5ex plus -1ex minus -.2ex} %If the values are negative then the first line after the heading will not be indented.
+%\setsecindent{0em}
+%\setsecheadstyle{\Large\bfseries}
+%\setaftersecskip{2.3ex plus .2ex} %If the value is negative, then the heading will be run-in
+
+%% Subsection
+%\setbeforesubsecskip{-3.25ex plus -1ex minus -.2ex} %If the values are negative then the first line after the heading will not be indented.
+%\setsubsecindent{0em}
+%\setsubsecheadstyle{\large\bfseries}
+%\setaftersubsecskip{1.5ex plus .2ex} %If the value is negative, then the heading will be run-in
+
+%% Subsubsection
+%\setbeforesubsubsecskip{-3.25ex plus -1ex minus -.2ex} %If the values are negative then the first line after the heading will not be indented.
+%\setsubsubsecindent{0em}
+%\setsubsubsecheadstyle{\bfseries}
+%\setaftersubsubsecskip{1.5ex plus .2ex} %If the value is negative, then the heading will be run-in
+
+%% Paragraph
+%\setbeforeparaskip{3.25ex plus 1ex minus .2ex}
+%\setparaindent{0em}
+%\setparaheadstyle{\bfseries}
+%\setafterparaskip{-1em} %If the value is negative, then the heading will be run-in
+
+%% Subparagraph
+%\setbeforesubparaskip{3.25ex plus 1ex minus .2ex}
+%\setsubparaindent{\parindent}
+%\setsubparaheadstyle{\bfseries}
+%\setaftersubparaskip{-1em} %If the value is negative, then the heading will be run-in
+
+%%
+%% TABLE OF CONTENTS
+%%
+
+%\maxtocdepth{section} % include sections
+%\renewcommand{\cftchapterpagefont}{}
+%\renewcommand{\cftchapterfont}{} 
+
+
+%%
+%% CUSTOM COMMANDS
+%%
+

@@ -1,0 +1,31 @@
+\documentclass[11pt,twoside,onecolumn,openright,extrafontsizes]{memoir}
+
+% Preamble
+\input{config}
+
+%Reset chapter numbering everytime \book is issued
+%\counterwithin*{chapter}{book}
+
+\title{Lord Jim}
+\author{Joseph Conrad}
+\date{}
+
+%\widowpenalty10000
+%\sloppybottom
+
+\begin{document}
+	\raggedbottom
+    \frontmatter
+        \input{content/halftitle}
+        \input{content/title}
+        \input{content/copyright}
+        \input{content/foreword}
+        \cleardoublepage
+        %\tableofcontents*
+    \mainmatter
+%    \book{book1}
+            \input{content/chapter01}
+            \input{content/chapter02}
+            \input{content/chapter03}
+    \backmatter
+\end{document}
